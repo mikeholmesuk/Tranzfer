@@ -115,6 +115,7 @@ The root url will return a listing of all `transfer` records in the system:
         ...
     ]
     
+### Example Usage
 
 #### A ~Real Life~ Totally Made Up Scenario
 
