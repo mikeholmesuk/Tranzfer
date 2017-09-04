@@ -164,7 +164,7 @@ So now all 3 have an account in various degrees of financial solubility:
             "id": 3,
             "account_number": "07b39e27-ab7a-4bc3-b688-7ac9a1a7e2b2",
             "account_holder": "Jane",
-            "account_balance": 9400,
+            "account_balance": 9060,
             "created_at": "17-Sep-04 13:26:21"
         }
     ]
@@ -265,7 +265,7 @@ Finally we can see that Freddie is now back to having no money. Rod is the only 
             "id": 3,
             "account_number": "07b39e27-ab7a-4bc3-b688-7ac9a1a7e2b2",
             "account_holder": "Jane",
-            "account_balance": 9300,
+            "account_balance": 8960,
             "created_at": "17-Sep-04 13:26:21"
         },
         {
