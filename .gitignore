@@ -20,3 +20,6 @@ nb-configuration.xml
 atlassian-ide-plugin.xml
 
 logs
+
+H2 DB
+*.db
