@@ -1,0 +1,19 @@
+database:
+  driverClass: org.h2.Driver
+  user: techie
+  password: supersecret
+  url: jdbc:h2:./tranzfer
+
+flyway:
+  sqlMigrationPrefix: V
+  sqlMigrationSeparator: __
+  locations:
+    - db/migration
+  validateOnMigrate: true
+
+logging:
+  level: INFO
+
+system:
+  authorName: "Mike Holmes"
+  applicationName: "Tranzfer"
