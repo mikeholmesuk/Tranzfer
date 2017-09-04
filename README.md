@@ -132,7 +132,7 @@ Jane is a female which means that she has approximately 9.4% less money than Rod
     // POST /account
     {
     	"account_holder": "Jane",
-    	"account_balance": 9400.00
+    	"account_balance": 9060.00
     }
     
 Freddie is pretty good on the guitar but has an unfortunate penchant for faberge eggs and as such has no money. Ever.
