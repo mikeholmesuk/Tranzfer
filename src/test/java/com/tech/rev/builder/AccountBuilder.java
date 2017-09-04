@@ -13,7 +13,7 @@ public class AccountBuilder {
     private Integer id;
     private String accountNumber = UUID.randomUUID().toString();
     private String accountHolder = RDG.string().next();
-    private BigDecimal accountBalance = RDG.bigDecimal().next();
+    private BigDecimal accountBalance = RDG.bigDecimal(Double.MAX_VALUE).next();
     private DateTime createdAt;
 
     public AccountBuilder withId(Integer id) {
@@ -32,7 +32,11 @@ public class AccountBuilder {
     }
 
     public AccountBuilder withAccountBalance(BigDecimal accountBalance) {
-        this.accountBalance = accountBalance.setScale(2, RoundingMode.HALF_UP);
+        if (accountBalance != null) {
+            this.accountBalance = accountBalance.setScale(2, RoundingMode.HALF_UP);
+        } else {
+            this.accountBalance = accountBalance;
+        }
         return this;
     }
 
