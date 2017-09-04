@@ -13,7 +13,6 @@ import org.junit.After;
 import org.junit.ClassRule;
 import org.junit.Test;
 import org.mockito.ArgumentMatchers;
-import uk.org.fyodor.generators.RDG;
 
 import javax.ws.rs.client.Entity;
 import javax.ws.rs.core.MediaType;
