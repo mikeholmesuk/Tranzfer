@@ -257,7 +257,7 @@ Freddie can send the money now to Rod:
     	"currency": "GBP"
     }
     
-Finally we can see that Rod is now back to having no money. Rod is the only one to have made any money out of the whole scenario. Balance has been restored. 
+Finally we can see that Freddie is now back to having no money. Rod is the only one to have made any money out of the whole scenario. Balance has been restored. 
 
     // GET /account
     [
