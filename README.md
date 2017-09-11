@@ -18,7 +18,15 @@ Which is pretty vague (although probably by design). So for the sake of making p
 * The approach for handling transfers is done using a double entry accounting approach - so we have the debit account, the credit account, and the balance is adjusted for each. 
 * The account balance is stored in the `Account` model, rather than being derived from all transactions against an account. This is more to cut down the number of models and keep it simple, although there would be performance implications in taking that approach in a production system. 
 * `Account` holders can only add money to their account as part of their initial opening balance. There is no supported mechanism to add funds outside of them being transferred from someone who already has them. 
- 
+
+### Application Updates
+
+Upon request a change has been made to add some safety around around the action of making a transaction between accounts. This has been done in 3 ways:
+
+* Made the method `synchronized` - while this makes the method thread safe within the application although quite obviously wouldn't help in a clustered scenario.
+* Added an arguably draconian transaction isolation level (`SYNCHRONIZED`) - you could probably get away with `READ_COMMITTED` if you were so inclined.
+* Added a check to ensure that the correct number of account rows were updated and adding an explicit rollback if the expected updates are not found.
+
 ## System Overview
 
 This has been built using the rather good [`Dropwizard`](http://www.dropwizard.io/1.1.4/docs/) which gives pretty much most of what you'd want from an HTTP based service. This bundles a Jetty instance so you don't need to worry about external containers/ servers. For persistence there is an embedded [`H2`](http://www.h2database.com/html/main.html) instance.
@@ -107,10 +115,12 @@ The root url will return a listing of all `transfer` records in the system:
     // HTTP 200
     [
         {
+            "id": 21,
         	"credit_account_no": "caf85fbd-68da-4161-84ed-df9e3a00208d",
         	"debit_account_no": "5cac40c0-4e0c-4856-a5ab-69678ff49f4e",
         	"amount": 200.00,
-        	"currency": "GBP"
+        	"currency": "GBP",
+        	"created_at": "17-Sep-11 20:41:37"
         },
         ...
     ]
